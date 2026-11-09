@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle - <%= personaje.name %></title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= personaje.name %></h1>
+
+        <% if (locals.q) { %>
+            <p><em>Resultado para la búsqueda: "<%= q %>"</em></p>
+        <% } %>
+
+        <div class="detalle-card">
+            <img src="<%= personaje.photo %>" alt="<%= personaje.name %>">
+            
+            <div class="info">
+                <p><strong>Altura:</strong> <%= personaje.height %> cm</p>
+                <p><strong>Masa:</strong> <%= personaje.mass %> kg</p>
+
+                <!-- Información extraída de la SWAPI para Homeworld -->
+                <% if (personaje.homeworldData) { %>
+                    <hr>
+                    <h3>Planeta Natal: <%= personaje.homeworldData.name %></h3>
+                    <p><strong>Período de rotación:</strong> <%= personaje.homeworldData.rotation_period %></p>
+                    <p><strong>Período orbital:</strong> <%= personaje.homeworldData.orbital_period %></p>
+                <% } %>
+            </div>
+        </div>
+
+        <div class="acciones">
+            <!-- Botón EDITAR (GET) -->
+            <a href="/starwars/<%= (personaje.name) %>/edit" class="btn btn-edit">Editar Personaje</a>
+
+            <!-- Botón ELIMINAR (DELETE vía method-override) -->
+            <form action="/starwars/<%= (personaje.name) %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-delete" onclick="return confirm('¿Seguro que deseas eliminar a <%= personaje.name %>?')">Eliminar Personaje</button>
+            </form>
+        </div>
+
+        <br>
+        <a href="/starwars">← Volver al listado completo</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Personaje</title>
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Añadir Nuevo Personaje</h1>
+
+        <form action="/starwars" method="POST">
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="height">Altura (cm):</label>
+                <input type="number" id="height" name="height" required>
+            </div>
+
+            <div>
+                <label for="mass">Masa (kg):</label>
+                <input type="number" id="mass" name="mass" required>
+            </div>
+
+            <div>
+                <label for="photo">URL de la Imagen:</label>
+                <input type="url" id="photo" name="photo" placeholder="https://ejemplo.com/imagen.jpg" required>
+            </div>
+
+            <button type="submit" class="btn btn-save">Crear Personaje</button>
+            <a href="/starwars">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

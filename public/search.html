@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Google StarWars</title>
+		<base href="/">
+	<!-- Hoja de estilos común a todas las vistas -->
+	<link rel="stylesheet" href="/app.css">
+</head>
+	<body class="home">
+	<main class="home-main">
+
+		<!-- Formulario: envía por GET el campo "q" a la ruta /search (queryString) -->
+		<form action="/starwars" method="GET" class="buscador">
+			<div class="caja-busqueda">
+				<input type="text" name="q" placeholder="Busca un un personaje" autofocus>
+			</div>
+			<button type="submit" class="boton-google">Buscar</button>
+		</form>
+	</main>
+</body>
+</html>
